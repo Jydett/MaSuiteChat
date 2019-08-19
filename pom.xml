@@ -46,19 +46,23 @@
             <id>codemc-repo</id>
             <url>https://repo.codemc.org/repository/maven-snapshots/</url>
         </repository>
+            <repository>
+                <id>destroystokyo-repo</id>
+                <url>https://repo.destroystokyo.com/repository/maven-public//</url>
+            </repository>
     </repositories>
     <dependencies>
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.13-SNAPSHOT</version>
+            <version>1.14-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.13.2-R0.1-SNAPSHOT</version>
+            <groupId>com.destroystokyo.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.14.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -70,15 +74,24 @@
         <dependency>
             <groupId>net.milkbowl.vault</groupId>
             <artifactId>VaultAPI</artifactId>
-            <version>1.7</version>
+            <version>LATEST</version>
             <scope>provided</scope>
         </dependency>
         <!-- Permission plugins -->
         <dependency>
             <groupId>me.lucko.luckperms</groupId>
             <artifactId>luckperms-api</artifactId>
-            <version>4.3</version>
+            <version>LATEST</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>TCAPI</groupId>
+            <artifactId>TCAPI</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>
+                E:/Java/TheCraft/TCAPI/target/TCAPI.jar
+            </systemPath>
         </dependency>
     </dependencies>
 </project>

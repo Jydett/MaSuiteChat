@@ -1,19 +1,34 @@
-# Basic messages
-message-hover-actions: "&7Message sent at &9%timestamp%."
-no-player-to-reply: "&cNo players to reply"
-nickname-changed: "&aNick name changed to %nickname%"
+message-hover-actions: '&7Message envoyée à &9%timestamp%.'
+no-player-to-reply: '&cPas de joueur à qui répondre'
+nickname-changed: '&aPseudo changé en %nickname%'
 channel-changed:
-  staff: "&aChanged to Staff channel"
-  global: "&aChanged to Global channel"
-  server: "&aChanged to Server channel"
-  local: "&aChanged to Local channel"
-
+  staff: '&aVous êtes dans le channel Staff'
+  global: '&aVous êtes dans le channel Global'
+  server: '&aVous êtes dans le channel Server'
+  local: '&aVous êtes dans le channel Local'
 ignore-channel:
-  ingore: "&cYou are now ignoring that channel!"
-  unignore: "&aYou are now seeing that channel again!"
-#Mail
+  ingore: '&cYou are now ignoring that channel!'
+  unignore: '&aYou are now seeing that channel again!'
+  ignore: '&cYou are now ignoring that channel!'
 mail:
-  player-not-found: "&cPlayer not found."
-  sent: "&7Mail sent to &b%player%"
-  received: "&7Mail received from &b%player%"
-  empty: "&cYour mailbox is empty!"
+  player-not-found: '&cJoueur introuvable.'
+  sent: '&7Message envoyé &b%player%'
+  received: '&7Vous avez un message de &b%player%'
+  empty: '&cVotre boite de réception est vide!'
+switch-message:
+  enabled: false
+  message: '&9%player% &7has moved to &9%server%&7!'
+connection-message:
+  enabled: false
+  join: '&7[&a+&7] &9%player% &7joined!'
+  left: '&7[&c-&7] &9%player% &7left!'
+motd:
+  enabled: false
+  message: '&7Bienvenue sur TheCraft, &9%player%&7!'
+first-join:
+  enabled: true
+  message: "&9%player%&7 vient d'arriver, dites lui bienvenue !"
+afk:
+  enabled: false
+  'on': '&9%player% &7is now afk.'
+  'off': '&9%player% &7is no longer afk.'

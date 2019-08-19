@@ -2,8 +2,8 @@ name: MaSuiteChat
 main: fi.matiaspaavilainen.masuitechat.bukkit.MaSuiteChat
 version: ${project.version}
 author: Masagameplay
-depend: [Vault, MaSuiteCore]
-softdepend: [GriefPrevention, WorldGuard]
+depend: [TCAPI, MaSuiteCore]
+softdepend: [GriefPrevention, WorldGuard, LuckPerms]
 commands:
   mail:
     description: Send mail to player
@@ -34,7 +34,7 @@ commands:
     permission: masuitechat.channel.local
   tell:
     description: Send private message to player
-    aliases: [msg, tell, whisper, w]
+    aliases: [msg, tell, whisper, w, m]
     permission: masuitechat.channel.private
   reply:
     description: Reply to private message

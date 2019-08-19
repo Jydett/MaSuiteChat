@@ -1,14 +1,20 @@
-# Available variables for channels are: %server% %prefix% %nickname% %realname% %suffix% and %message%.
-# Available variables for private messaging are: %sender_prefix% %sender_suffix% %sender_nickname% %sender_realname% %receiver_prefix% %receiver_suffix% %receiver_nickname% %receiver_realname% and %message%
-# Color codes are using usual &-format
 formats:
-  staff: "&cStaff &7%server% %prefix% %realname% &6>&r %message%"
-  global: "&7%server% %prefix% %realname% &6>&r %message%"
-  server: "&fServer %prefix% %realname% &6>&r %message%"
-  local: "&6Local %prefix% %realname% &6>&r %message%"
-  mail: "&b%sender_realname% &6> &7%message%"
+  staff: '%staffprefix%&6[&4Staff&6]&f &f%prefix%&f %realname%: %message%'
+  global: '%staffprefix%%suffix%{&f%prefix%&f%suffix%}&f %realname%: %message%'
+  server: '%staffprefix%&6[&4S&6]&f %prefix%&f %realname%: %message%'
+  local: '%staffprefix%&6[&fL&6]&f %prefix%&f %realname%: %message%'
+  mail: '%staffprefix%&b%sender_realname%&f: &3%message%'
   private:
-    sender: "%sender_prefix% %sender_realname% %sender_suffix%&8-> %receiver_prefix% %receiver_realname% %receiver_suffix%&6>&r %message%"
-    receiver: "%sender_prefix% %sender_realname% %sender_suffix%&8-> %receiver_prefix% %receiver_realname% %receiver_suffix%&6>&r %message%"
-#Channels will be auto-generated
+    sender: '&6[&cmoi &6-> &c%receiver_realname%&6]&f %message%'
+    receiver: '&6[&c%sender_realname% &6-> &cmoi&6]&f %message%'
+prefix:
+  admin: '[&4Admin&f]'
+  modo: '[&6Modo&f]'
 channels:
+  spawn:
+    prefix: spawn
+    localRadius: 100
+  mine:
+    prefix: mine
+    localRadius: 100
+group:

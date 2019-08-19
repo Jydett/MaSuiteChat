@@ -27,6 +27,7 @@ public class MaSuiteChat extends JavaPlugin implements Listener {
     public BukkitConfiguration config = new BukkitConfiguration();
     public Formator formator = new Formator();
     public List<UUID> afkList = new ArrayList<>();
+    public static boolean luckPermsApi = false;
 
     public HashMap<UUID, Location> locations = new HashMap<>();
 
@@ -37,7 +38,9 @@ public class MaSuiteChat extends JavaPlugin implements Listener {
         config.create(this, "chat", "config.yml");
 
         // Load listeners
-        getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
+        if (getServer().getPluginManager().getPlugin("LuckPerms") == null) {
+            getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
+        }
         getServer().getPluginManager().registerEvents(new LeaveEvent(this), this);
         if(config.load("chat", "config.yml").getBoolean("afk-listener")){
             getServer().getPluginManager().registerEvents(new AfkEvents(this), this);

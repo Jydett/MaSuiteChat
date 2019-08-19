@@ -49,11 +49,17 @@ public class ChatMessagingChannel implements PluginMessageListener {
                         pl.spigot().sendMessage(msg);
                     }
                 }
+            } else if (subchannel.equals("Announce")) {
+                boolean staffOnly = in.readBoolean();
+                for (Player pl : Bukkit.getOnlinePlayers()) {
+                    if (staffOnly && !pl.hasPermission("masuitechat.channel.staff")) return;
+                    TextComponent msg = new TextComponent(ComponentSerializer.parse(in.readUTF()));
+                    pl.spigot().sendMessage(msg);
+                }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

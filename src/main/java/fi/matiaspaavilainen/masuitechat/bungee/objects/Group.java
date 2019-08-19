@@ -14,12 +14,14 @@ public class Group {
     private UUID uuid;
     private String prefix;
     private String suffix;
+    private User user;
 
     /**
      * Initialize empty group
      */
     public Group() {
         this.uuid = null;
+        this.user = null;
         this.prefix = "";
         this.suffix = "";
     }
@@ -46,7 +48,7 @@ public class Group {
     public Group get(UUID uuid) {
         if (MaSuiteChat.luckPermsApi) {
             LuckPermsApi api = LuckPerms.getApi();
-            User user = api.getUser(uuid);
+            user = api.getUser(uuid);
             if (user != null) {
                 Optional<Contexts> contexts = api.getContextForUser(user);
                 if (!contexts.isPresent()) return null;
@@ -104,4 +106,7 @@ public class Group {
     }
 
 
+    public User getUser() {
+        return user;
+    }
 }

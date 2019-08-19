@@ -13,6 +13,7 @@ import fi.matiaspaavilainen.masuitecore.core.Updator;
 import fi.matiaspaavilainen.masuitecore.core.configuration.BungeeConfiguration;
 import fi.matiaspaavilainen.masuitecore.core.database.ConnectionManager;
 import fi.matiaspaavilainen.masuitecore.core.objects.MaSuitePlayer;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PluginMessageEvent;
 import net.md_5.bungee.api.plugin.Listener;
@@ -107,6 +108,7 @@ public class MaSuiteChat extends Plugin implements Listener {
             String subchannel = in.readUTF();
             if (subchannel.equals("MaSuiteChat")) {
                 String childchannel = in.readUTF();
+                //getProxy().broadcast(new ComponentBuilder(childchannel).create());
                 if (childchannel.equals("Chat")) {
                     ProxiedPlayer p = getProxy().getPlayer(UUID.fromString(in.readUTF()));
                     if (p == null) {
@@ -127,7 +129,13 @@ public class MaSuiteChat extends Plugin implements Listener {
                                 String msg = in.readUTF();
                                 localChannel.send(p, msg);
                                 break;
+                            default:
+                                players.put(p.getUniqueId(), "global");
+                                Global.sendMessage(p, in.readUTF());
                         }
+                    } else {
+                        players.put(p.getUniqueId(), "global");
+                        Global.sendMessage(p, in.readUTF());
                     }
                 }
                 if (childchannel.equals("ToggleChannel")) {
@@ -154,6 +162,11 @@ public class MaSuiteChat extends Plugin implements Listener {
                         }
                     }
 
+                }
+                if (childchannel.equals("Announce")) {
+                    boolean isOp = in.readBoolean();
+                    String value = in.readUTF();
+                    getProxy().broadcast(new ComponentBuilder(value).create());
                 }
                 if (childchannel.equals("SendMessage")) {
                     String channel = in.readUTF();
